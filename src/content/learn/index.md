@@ -125,10 +125,11 @@ React میں آپ CSS کی کلاس `className` کا استعمال کرتے ہ�
 
 React کوئی خاص طریقہ مقرر نہیں کرتا کہ آپ کیسے سی ایس ایس فائلوں کو شامل کریں۔ سب سے آسان صورت میں ، آپ ایک [`<link>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link) ٹیگ کو اپنی HTML میں شامل کریں گے۔ اگر آپ بلڈ ٹول یا فریم ورک استعمال کرتے ہیں تو، آپ کو اسکی دستاویزات یا گائیڈ دیکھنی چاہیے۔
 
-## Displaying data {/*displaying-data*/}
+## ڈیٹا کو ڈسپلے پر دکھانا {/*displaying-data*/}
 
-JSX lets you put markup into JavaScript. Curly braces let you "escape back" into JavaScript so that you can embed some variable from your code and display it to the user. For example, this will display `user.name`:
+JSX آپکو مارکپ کو جاواسکرپٹ میں لکھنے کی صلاحیت فراہم کرتا ہے۔ کرلی بریسز `{}` کے ساتھ آپ دوبارہ جاواسکرپٹ کا استعمال کر سکتے ہیں تاکہ `variable` کو اپنے کوڈ میں شامل کر کے یوزر کو دیکھا سکیں۔ مثلاً، یہ `user.name` کو ڈسپلے پر دکھائے گا :
 
+<div dir="ltr">
 ```js {3}
 return (
   <h1>
@@ -136,9 +137,11 @@ return (
   </h1>
 );
 ```
+</div>
 
-You can also "escape into JavaScript" from JSX attributes, but you have to use curly braces *instead of* quotes. For example, `className="avatar"` passes the `"avatar"` string as the CSS class, but `src={user.imageUrl}` reads the JavaScript `user.imageUrl` variable value, and then passes that value as the `src` attribute:
+ آپ جاواسکرپٹ کو `attributes` JSX میں بھی استعمال کر سکتے ہیں، لیکن اسکے لیے آپکو کوٹیشنز `""` کی بجائے کرلی بریسز `{}` کو استعمال کرنا ہوگا۔ مثلاً `"className="avatar` استعمال کرنے سے `avatar` کو CSS کی کلاس سمجھا جائیگا، لیکن `src={user.imageUrl}` استعمال کرنے سے `user.imageUrl` کو جاواسکرپٹ کا ویریبل سمجھا جائیگا، اور `src` کو ویریبل کی ویلیو پاس کردی جائیگی :
 
+<div dir="ltr">
 ```js {3,4}
 return (
   <img
@@ -147,9 +150,11 @@ return (
   />
 );
 ```
+</div>
 
-You can put more complex expressions inside the JSX curly braces too, for example, [string concatenation](https://javascript.info/operators#string-concatenation-with-binary):
+آپ JSX کی کرلی بریسز `{}` میں پیچیدہ جاواسکرپٹ ایکسپریشنز کا بھی استعمال کر سکتے ہیں، مثلاً [دو سٹرنگز کو جمع کرنا](https://javascript.info/operators#string-concatenation-with-binary): 
 
+<div dir="ltr">
 <Sandpack>
 
 ```js
@@ -188,6 +193,9 @@ export default function Profile() {
 ```
 
 </Sandpack>
+</div>
+ 
+اوپر والے کوڈ میں `{{}}=style` کوئی نیا سینٹیکس نہیں ہے، بلکہ یہ ایک سادہ جاواسکرپٹ کا ہی آبجیکٹ `{}` ہے جسکو `{}=style` کے اندر رکھا گیا ہے۔ 
 
 In the above example, `style={{}}` is not a special syntax, but a regular `{}` object inside the `style={ }` JSX curly braces. You can use the `style` attribute when your styles depend on JavaScript variables.
 
