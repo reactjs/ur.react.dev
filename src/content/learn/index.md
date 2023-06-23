@@ -19,12 +19,13 @@ title: جلدی شروع کریں
 
 </YouWillLearn>
 
-## Creating and nesting components {/*components*/}
+## کمپونینٹ کو بنانا اور نیسٹ کرنا {/*components*/}
 
-React apps are made out of *components*. A component is a piece of the UI (user interface) that has its own logic and appearance. A component can be as small as a button, or as large as an entire page.
+React ایپس کچھ *کمپونینٹ* کو ملا کر بنتی ہیں۔ ایک کمپونینٹ یوزر انٹرفیس کا ایک حصہ کہلاتا ہے جس کے پاس اپنا لاجک اور ڈیزائن ہوتا ہے. کمپونینٹ ایک چھوٹا سا بٹن بھی ہوسکتا ہے اور ایک مکمل پیج بھی ہوسکتا ہے۔
 
-React components are JavaScript functions that return markup:
+React کمپونینٹ جاواسکرپٹ کے فنکشن ہوتے ہیں جو مارکپ کو واپس بھیجتے ہیں:
 
+<div dir="ltr">
 ```js
 function MyButton() {
   return (
@@ -32,9 +33,11 @@ function MyButton() {
   );
 }
 ```
+</div>
 
-Now that you've declared `MyButton`, you can nest it into another component:
+ابھی اپنے `MyButton` کمپونینٹ بنایا، اسے آپ ایک اور کمپونینٹ میں نیسٹ (شامل) بھی کر سکتے ہیں:
 
+<div dir="ltr">
 ```js {5}
 export default function MyApp() {
   return (
@@ -45,11 +48,13 @@ export default function MyApp() {
   );
 }
 ```
+</div>
 
-Notice that `<MyButton />` starts with a capital letter. That's how you know it's a React component. React component names must always start with a capital letter, while HTML tags must be lowercase.
+آپ دیکھیں کہ `MyButton` بڑے لفظ سے شروع ہوتا ہے۔ اور اِسی طرح آپ پہچان سکتے ہیں کہ یہ ایک React کمپونینٹ ہے۔ React کمپونینٹ ہمیشہ بڑے لفظ سے شروع ہونے چاہئیں، جبکہ HTML ٹیگ چھوٹے لفظوں میں ہونے چاہئیں۔
 
-Have a look at the result:
+نتیجہ ملاحظہ کریں:
 
+<div dir="ltr">
 <Sandpack>
 
 ```js
@@ -72,8 +77,9 @@ export default function MyApp() {
 ```
 
 </Sandpack>
+</div>
 
-The `export default` keywords specify the main component in the file. If you're not familiar with some piece of JavaScript syntax, [MDN](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export) and [javascript.info](https://javascript.info/import-export) have great references.
+`export default` لفظ فائل میں مرکزی کمپونینٹ کی وضاحت کرتا ہے۔ اگر آپ جاواسکرپٹ کے کچھ حصوں سے ناواقف ہیں تو [MDN](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export) اور [javascript.info](https://javascript.info/import-export) سیکھنے کے لئے اچھی جگہیں ہیں۔ 
 
 ## Writing markup with JSX {/*writing-markup-with-jsx*/}
 
