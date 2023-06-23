@@ -197,12 +197,14 @@ export default function Profile() {
  
 اوپر والے کوڈ میں `{{}}=style` کوئی نیا سینٹیکس نہیں ہے، بلکہ یہ ایک سادہ جاواسکرپٹ کا ہی آبجیکٹ `{}` ہے جسکو `{}=style` کے اندر رکھا گیا ہے۔ 
 
-In the above example, `style={{}}` is not a special syntax, but a regular `{}` object inside the `style={ }` JSX curly braces. You can use the `style` attribute when your styles depend on JavaScript variables.
 
-## Conditional rendering {/*conditional-rendering*/}
 
-In React, there is no special syntax for writing conditions. Instead, you'll use the same techniques as you use when writing regular JavaScript code. For example, you can use an [`if`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) statement to conditionally include JSX:
+## کنڈیشنل رینڈرنگ {/*conditional-rendering*/}
 
+React میں کنڈیشن لکھنے کا کوئی خاص طریقہ نہیں ہے، بلکہ آپ بلکل اُسی طرح لکھتے ہیں جیسے جاواسکرپٹ کا نارمل کوڈ لکھا جاتا ہے۔ مثلاً، آپ [`if`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) اسٹیٹمینٹ کو استعمال کر سکتے ہیں JSX کو مشروط طور پر شامل کرنے کے لئے :
+
+
+<div dir="ltr">
 ```js
 let content;
 if (isLoggedIn) {
@@ -216,9 +218,12 @@ return (
   </div>
 );
 ```
+</div>
 
-If you prefer more compact code, you can use the [conditional `?` operator.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) Unlike `if`, it works inside JSX:
 
+اگر آپ مختصر کوڈ لکھنا پسند کرتے ہیں تو آپ [کنڈیشنل `?` آپریٹر](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) کا استعمال کر سکتے ہیں۔ یہ `if` کے برعکس JSX کے اندر ہی کام کر سکتا ہے :
+
+<div dir="ltr">
 ```js
 <div>
   {isLoggedIn ? (
@@ -228,16 +233,19 @@ If you prefer more compact code, you can use the [conditional `?` operator.](htt
   )}
 </div>
 ```
+</div>
 
-When you don't need the `else` branch, you can also use a shorter [logical `&&` syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND#short-circuit_evaluation):
+جب آپکو `else` اسٹیٹمینٹ کی ضرورت نا ہو تو آپ [لاجیکل `&&` سینٹیکس](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND#short-circuit_evaluation) کا بھی استعمال کر سکتے ہیں جوکہ مزید مختصر ہوجاتا ہے :
 
+<div dir="ltr">
 ```js
 <div>
   {isLoggedIn && <AdminPanel />}
 </div>
 ```
+</div>
 
-All of these approaches also work for conditionally specifying attributes. If you're unfamiliar with some of this JavaScript syntax, you can start by always using `if...else`.
+یہ سب طریقے مشروط طور پر `attributes` کو واضح کرنے کے لیے بھی کام آتے ہیں۔ اگر آپ جاواسکرپٹ کے اس طرح کے کچھ حصوں سے ناواقف ہیں تو آپ ہمیشہ `if...else` سے شروعات کر سکتے ہیں۔
 
 ## Rendering lists {/*rendering-lists*/}
 
