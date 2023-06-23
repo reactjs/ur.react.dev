@@ -1,21 +1,21 @@
 ---
-title: Quick Start
+title: جلدی شروع کریں
 ---
 
 <Intro>
 
-Welcome to the React documentation! This page will give you an introduction to the 80% of React concepts that you will use on a daily basis.
+تفصیلاتی گائیڈ میں خوش آمدید! یہ پیج آپکو React کے 80% مفاہیم کا تعارف کروائے گا جو آپ روزانہ استعمال کرتے ہیں۔
 
 </Intro>
 
 <YouWillLearn>
 
-- How to create and nest components
-- How to add markup and styles
-- How to display data
-- How to render conditions and lists
-- How to respond to events and update the screen
-- How to share data between components
+- کمپونینٹ بنانے اور نیسٹ کرنے کا طریقہ
+- مارکپ اور اسٹائل کو کیسے شامل کریں
+- ڈیٹا کو ڈسپلے کرنے کا طریقہ
+- کنڈیشنز اور لسٹ کو رینڈر کرنے کا طریقہ
+- ایونٹ کا جواب اور سکرین کو اپڈیٹ کرنے کا طریقہ
+- کمپونینٹس کے درمیان ڈیٹا بھیجنے کا طریقہ
 
 </YouWillLearn>
 
