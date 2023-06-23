@@ -81,12 +81,13 @@ export default function MyApp() {
 
 `export default` لفظ فائل میں مرکزی کمپونینٹ کی وضاحت کرتا ہے۔ اگر آپ جاواسکرپٹ کے کچھ حصوں سے ناواقف ہیں تو [MDN](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export) اور [javascript.info](https://javascript.info/import-export) سیکھنے کے لئے اچھی جگہیں ہیں۔ 
 
-## Writing markup with JSX {/*writing-markup-with-jsx*/}
+## مارکپ کو JSX کے ساتھ لکھنا {/*writing-markup-with-jsx*/}
 
-The markup syntax you've seen above is called *JSX*. It is optional, but most React projects use JSX for its convenience. All of the [tools we recommend for local development](/learn/installation) support JSX out of the box.
+جو آپنے اوپر مارکپ کوڈ دیکھا ہے جو *JSX* کہلاتا ہے۔ یہ ضروری نہیں ہے، لیکن بیشتر React پراجیکٹ اپنی آسانی کے لئے JSX کو استعمال کرتے ہیں۔ جتنے بھی [ٹولز ہم لوکل ڈویلپمنٹ کے لیے بتاتے](/learn/installation) ہیں وہ JSX کی حمایت کرتے ہیں۔
 
-JSX is stricter than HTML. You have to close tags like `<br />`. Your component also can't return multiple JSX tags. You have to wrap them into a shared parent, like a `<div>...</div>` or an empty `<>...</>` wrapper:
+JSX کے قوانین HTML سے زیادہ سخت ہیں۔ آپکو ٹیگ کو کچھ اس طرح بند کرنا ہوتا ہے `</br>`. آپکا کمپونینٹ ایک سے زائد JSX ٹیگ کو واپس بھی نہیں بھیج سکتا۔ آپکو ایک سے زائد ٹیگ کو کسی ایک ٹیگ میں شامل کرنا ہوتا ہے، مثلاً `<div>...</div>` یا پھر خالی `<>...</>` ریپر :
 
+<div dir="ltr">
 ```js {3,6}
 function AboutPage() {
   return (
@@ -97,8 +98,9 @@ function AboutPage() {
   );
 }
 ```
+</div>
 
-If you have a lot of HTML to port to JSX, you can use an [online converter.](https://transform.tools/html-to-jsx)
+اگر آپکے پاس کافی زیادہ HTML ہے جسے JSX میں تبدیل کرنا ہے تو آپ [آنلائن کنورٹر](https://transform.tools/html-to-jsx) استعمال کر سکتے ہیں۔
 
 ## Adding styles {/*adding-styles*/}
 
