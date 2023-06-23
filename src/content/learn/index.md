@@ -102,24 +102,28 @@ function AboutPage() {
 
 اگر آپکے پاس کافی زیادہ HTML ہے جسے JSX میں تبدیل کرنا ہے تو آپ [آنلائن کنورٹر](https://transform.tools/html-to-jsx) استعمال کر سکتے ہیں۔
 
-## Adding styles {/*adding-styles*/}
+## اسٹائل شامل کرنا {/*adding-styles*/}
 
-In React, you specify a CSS class with `className`. It works the same way as the HTML [`class`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class) attribute:
+React میں آپ CSS کی کلاس `className` کا استعمال کرتے ہوے واضح کرتے ہیں۔ اور یہ بلکل [`class`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class) HTML کی طرح ہی کام کرتی ہے :
 
+<div dir="ltr">
 ```js
 <img className="avatar" />
 ```
+</div>
 
-Then you write the CSS rules for it in a separate CSS file:
+پھر آپ اس کے لئے CSS کا کوڈ ایک الگ فائل میں لکھتے ہیں :
 
+<div dir="ltr">
 ```css
 /* In your CSS */
 .avatar {
   border-radius: 50%;
 }
 ```
+</div>
 
-React does not prescribe how you add CSS files. In the simplest case, you'll add a [`<link>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link) tag to your HTML. If you use a build tool or a framework, consult its documentation to learn how to add a CSS file to your project.
+React کوئی خاص طریقہ مقرر نہیں کرتا کہ آپ کیسے سی ایس ایس فائلوں کو شامل کریں۔ سب سے آسان صورت میں ، آپ ایک [`<link>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link) ٹیگ کو اپنی HTML میں شامل کریں گے۔ اگر آپ بلڈ ٹول یا فریم ورک استعمال کرتے ہیں تو، آپ کو اسکی دستاویزات یا گائیڈ دیکھنی چاہیے۔
 
 ## Displaying data {/*displaying-data*/}
 
