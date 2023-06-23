@@ -247,12 +247,13 @@ return (
 
 یہ سب طریقے مشروط طور پر `attributes` کو واضح کرنے کے لیے بھی کام آتے ہیں۔ اگر آپ جاواسکرپٹ کے اس طرح کے کچھ حصوں سے ناواقف ہیں تو آپ ہمیشہ `if...else` سے شروعات کر سکتے ہیں۔
 
-## Rendering lists {/*rendering-lists*/}
+## لسٹ کو رینڈر کرنا {/*rendering-lists*/}
 
-You will rely on JavaScript features like [`for` loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for) and the [array `map()` function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) to render lists of components.
+آپکو کمپونینٹ کی لسٹ کو ڈسپلے پر دکھانے کے لئے جاواسکرپٹ کے [`for` loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for) یا پھر [array `map()` function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) کا استعمال کرنا ہوتا ہے۔
 
-For example, let's say you have an array of products:
+مثال کے طور پر، فرض کریں کہ آپکے پاس کچھ پراڈکٹ کی array ہے :
 
+<div dir="ltr">
 ```js
 const products = [
   { title: 'Cabbage', id: 1 },
@@ -260,9 +261,11 @@ const products = [
   { title: 'Apple', id: 3 },
 ];
 ```
+</div>
 
-Inside your component, use the `map()` function to transform an array of products into an array of `<li>` items:
+اپنے کمپونینٹ میں `()map` فنکشن کا استعمال کرتے ہوے پراڈکٹ کی array کو `<li>` آئٹم میں تبدیل کریں :
 
+<div dir="ltr">
 ```js
 const listItems = products.map(product =>
   <li key={product.id}>
@@ -274,9 +277,11 @@ return (
   <ul>{listItems}</ul>
 );
 ```
+</div>
 
-Notice how `<li>` has a `key` attribute. For each item in a list, you should pass a string or a number that uniquely identifies that item among its siblings. Usually, a key should be coming from your data, such as a database ID. React uses your keys to know what happened if you later insert, delete, or reorder the items.
+آپ مشاہدہ کریں کہ کیسے `<li>` کے پاس ایک `key` attribute ہے۔ لسٹ کی ہر آئٹم کے لئے آپکو سٹرنگ یا نمبر پاس کرنا ہوتا تاکہ اس آئٹم کو اپنی ہم زلف دوسری آئٹمز کے درمیان پہنچانا جا سکے۔ عام طور پر key ڈیٹابیس سے آتی ہے جیسا کہ ڈیٹابیس ID۔ React آپکی مہیا کی ہوئی key کو آئٹم کو مختص کرنے کے لئے استعمال کرتی ہے، تاکہ پتہ کیا جاسکے کہ بعد میں جب آپ کسی آئٹم کو شامل یا ڈیلیٹ کریں تو کیا ہونا چاہیے۔
 
+<div dir="ltr">
 <Sandpack>
 
 ```js
@@ -305,6 +310,7 @@ export default function ShoppingList() {
 ```
 
 </Sandpack>
+</div>
 
 ## Responding to events {/*responding-to-events*/}
 
