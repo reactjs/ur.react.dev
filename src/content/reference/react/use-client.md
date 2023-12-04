@@ -59,6 +59,7 @@ As dependencies of `RichTextEditor`, `formatDate` and `Button` will also be eval
 In a React app, components are often split into separate files, or [modules](/learn/importing-and-exporting-components#exporting-and-importing-a-component).
 
 For apps that use React Server Components, the app is server-rendered by default. `'use client'` introduces a server-client boundary in the [module dependency tree](/learn/understanding-your-ui-as-a-tree#the-module-dependency-tree), effectively creating a subtree of Client modules.
+
 To better illustrate this, consider the following React Server Components app.
 
 <Sandpack>
@@ -306,7 +307,7 @@ export default function Counter({initialValue = 0}) {
 
 </Sandpack>
 
-As `Counter` requires both the `useState` Hook and event handlers to increment or decrement the value, this component must be a Client Component and will require a `'use client'` directive at the top.4
+As `Counter` requires both the `useState` Hook and event handlers to increment or decrement the value, this component must be a Client Component and will require a `'use client'` directive at the top.
 
 In contrast, a component that renders UI without interaction will not need to be a Client Component.
 
