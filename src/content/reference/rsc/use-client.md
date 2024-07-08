@@ -64,7 +64,7 @@ To better illustrate this, consider the following React Server Components app.
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import FancyText from './FancyText';
 import InspirationGenerator from './InspirationGenerator';
 import Copyright from './Copyright';
@@ -82,7 +82,7 @@ export default function App() {
 
 ```
 
-```js FancyText.js
+```js src/FancyText.js
 export default function FancyText({title, text}) {
   return title
     ? <h1 className='fancy title'>{text}</h1>
@@ -90,7 +90,7 @@ export default function FancyText({title, text}) {
 }
 ```
 
-```js InspirationGenerator.js
+```js src/InspirationGenerator.js
 'use client';
 
 import { useState } from 'react';
@@ -113,13 +113,13 @@ export default function InspirationGenerator({children}) {
 }
 ```
 
-```js Copyright.js
+```js src/Copyright.js
 export default function Copyright({year}) {
   return <p className='small'>©️ {year}</p>;
 }
 ```
 
-```js inspirations.js
+```js src/inspirations.js
 export default [
   "Don’t let yesterday take up too much of today.” — Will Rogers",
   "Ambition is putting a ladder against the sky.",
@@ -269,12 +269,12 @@ Serializable props include:
 	* [TypedArray](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) and [ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer)
 * [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
 * Plain [objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object): those created with [object initializers](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer), with serializable properties
-* Functions that are [Server Actions](/reference/react/use-server)
+* Functions that are [Server Actions](/reference/rsc/use-server)
 * Client or Server Component elements (JSX)
 * [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 Notably, these are not supported:
-* [Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function) that are not exported from client-marked modules or marked with [`'use server'`](/reference/react/use-server)
+* [Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function) that are not exported from client-marked modules or marked with [`'use server'`](/reference/rsc/use-server)
 * [Classes](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Classes_in_JavaScript)
 * Objects that are instances of any class (other than the built-ins mentioned) or objects with [a null prototype](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects)
 * Symbols not registered globally, ex. `Symbol('my new symbol')`
@@ -286,7 +286,7 @@ Notably, these are not supported:
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 'use client';
 
 import { useState } from 'react';
