@@ -1,7 +1,15 @@
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 /*
  * Copyright (c) Facebook, Inc. and its affiliates.
  */
 
+// eslint-disable-next-line react-compiler/react-compiler
 /* eslint-disable react-hooks/exhaustive-deps */
 import {useRef, useState, useEffect, useMemo, useId} from 'react';
 import {useSandpack, SandpackStack} from '@codesandbox/sandpack-react/unstyled';
@@ -54,7 +62,7 @@ export function Preview({
 
   // When throwing a new Error in Sandpack - we want to disable the dev error dialog
   // to show the Error Boundary fallback
-  if (rawError && rawError.message.includes(`throw Error('Example error')`)) {
+  if (rawError && rawError.message.includes('Example Error:')) {
     rawError = null;
   }
 
@@ -113,7 +121,7 @@ export function Preview({
           /**
            * The spinner component transition might be longer than
            * the bundler loading, so we only show the spinner if
-           * it takes more than 1s to load the bundler.
+           * it takes more than 500s to load the bundler.
            */
           timeout = setTimeout(() => {
             setShowLoading(true);
