@@ -1,8 +1,9 @@
 ---
 title: experimental_taintObjectReference
+version: experimental
 ---
 
-<Wip>
+<Experimental>
 
 **This API is experimental and is not available in a stable version of React yet.**
 
@@ -16,7 +17,7 @@ Experimental versions of React may contain bugs. Don't use them in production.
 
 This API is only available inside React Server Components.
 
-</Wip>
+</Experimental>
 
 
 <Intro>
@@ -64,11 +65,11 @@ experimental_taintObjectReference(
 
 #### Caveats {/*caveats*/}
 
-- Recreating or cloning a tainted object creates a new untained object which may contain sensitive data. For example, if you have a tainted `user` object, `const userInfo = {name: user.name, ssn: user.ssn}` or `{...user}` will create new objects which are not tainted. `taintObjectReference` only protects against simple mistakes when the object is passed through to a Client Component unchanged.
+- Recreating or cloning a tainted object creates a new untainted object which may contain sensitive data. For example, if you have a tainted `user` object, `const userInfo = {name: user.name, ssn: user.ssn}` or `{...user}` will create new objects which are not tainted. `taintObjectReference` only protects against simple mistakes when the object is passed through to a Client Component unchanged.
 
 <Pitfall>
 
-**Do not rely on just tainting for security.** Tainting an object doesn't prevent leaking of every possible derived value. For example, the clone of a tainted object will create a new untained object. Using data from a tainted object (e.g. `{secret: taintedObj.secret}`) will create a new value or object that is not tainted. Tainting is a layer of protection; a secure app will have multiple layers of protection, well designed APIs, and isolation patterns.
+**Do not rely on just tainting for security.** Tainting an object doesn't prevent leaking of every possible derived value. For example, the clone of a tainted object will create a new untainted object. Using data from a tainted object (e.g. `{secret: taintedObj.secret}`) will create a new value or object that is not tainted. Tainting is a layer of protection; a secure app will have multiple layers of protection, well designed APIs, and isolation patterns.
 
 </Pitfall>
 
