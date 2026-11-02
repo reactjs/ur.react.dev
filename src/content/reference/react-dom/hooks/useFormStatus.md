@@ -1,13 +1,6 @@
 ---
 title: useFormStatus
-canary: true
 ---
-
-<Canary>
-
-The `useFormStatus` Hook is currently only available in React's Canary and experimental channels. Learn more about [React's release channels here](/community/versioning-policy#all-release-channels).
-
-</Canary>
 
 <Intro>
 
@@ -47,7 +40,7 @@ export default function App() {
 }
 ```
 
-To get status information, the `Submit` component must be rendered within a `<form>`. The Hook returns information like the <CodeStep step={1}>`pending`</CodeStep> property which tells you if the form is actively submitting. 
+To get status information, the `Submit` component must be rendered within a `<form>`. The Hook returns information like the <CodeStep step={1}>`pending`</CodeStep> property which tells you if the form is actively submitting.
 
 In the above example, `Submit` uses this information to disable `<button>` presses while the form is submitting.
 
@@ -72,7 +65,7 @@ A `status` object with the following properties:
 
 #### Caveats {/*caveats*/}
 
-* The `useFormStatus` Hook must be called from a component that is rendered inside a `<form>`. 
+* The `useFormStatus` Hook must be called from a component that is rendered inside a `<form>`.
 * `useFormStatus` will only return status information for a parent `<form>`. It will not return status information for any `<form>` rendered in that same component or children components.
 
 ---
@@ -82,11 +75,11 @@ A `status` object with the following properties:
 ### Display a pending state during form submission {/*display-a-pending-state-during-form-submission*/}
 To display a pending state while a form is submitting, you can call the `useFormStatus` Hook in a component rendered in a `<form>` and read the `pending` property returned.
 
-Here, we use the `pending` property to indicate the form is submitting. 
+Here, we use the `pending` property to indicate the form is submitting.
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useFormStatus } from "react-dom";
 import { submitForm } from "./actions.js";
 
@@ -112,24 +105,12 @@ export default function App() {
 }
 ```
 
-```js actions.js hidden
+```js src/actions.js hidden
 export async function submitForm(query) {
     await new Promise((res) => setTimeout(res, 1000));
 }
 ```
-
-```json package.json hidden
-{
-  "dependencies": {
-    "react": "canary",
-    "react-dom": "canary",
-    "react-scripts": "^5.0.0"
-  },
-  "main": "/index.js",
-  "devDependencies": {}
-}
-```
-</Sandpack>  
+</Sandpack>
 
 <Pitfall>
 
@@ -151,7 +132,7 @@ Instead call `useFormStatus` from inside a component that is located inside `<fo
 ```js
 function Submit() {
   // ✅ `pending` will be derived from the form that wraps the Submit component
-  const { pending } = useFormStatus(); 
+  const { pending } = useFormStatus();
   return <button disabled={pending}>...</button>;
 }
 
@@ -175,78 +156,66 @@ Here, we have a form where users can request a username. We can use `useFormStat
 
 <Sandpack>
 
-```js UsernameForm.js active
+```js src/UsernameForm.js active
 import {useState, useMemo, useRef} from 'react';
 import {useFormStatus} from 'react-dom';
 
 export default function UsernameForm() {
   const {pending, data} = useFormStatus();
 
-  const [showSubmitted, setShowSubmitted] = useState(false);
-  const submittedUsername = useRef(null);
-  const timeoutId = useRef(null);
-
-  useMemo(() => {
-    if (pending) {
-      submittedUsername.current = data?.get('username');
-      if (timeoutId.current != null) {
-        clearTimeout(timeoutId.current);
-      }
-
-      timeoutId.current = setTimeout(() => {
-        timeoutId.current = null;
-        setShowSubmitted(false);
-      }, 2000);
-      setShowSubmitted(true);
-    }
-  }, [pending, data]);
-
   return (
-    <>
-      <label>Request a Username: </label><br />
-      <input type="text" name="username" />
+    <div>
+      <h3>Request a Username: </h3>
+      <input type="text" name="username" disabled={pending}/>
       <button type="submit" disabled={pending}>
-        {pending ? 'Submitting...' : 'Submit'}
+        Submit
       </button>
-      {showSubmitted ? (
-        <p>Submitted request for username: {submittedUsername.current}</p>
-      ) : null}
-    </>
+      <br />
+      <p>{data ? `Requesting ${data?.get("username")}...`: ''}</p>
+    </div>
   );
 }
 ```
 
-```js App.js
+```js src/App.js
 import UsernameForm from './UsernameForm';
 import { submitForm } from "./actions.js";
+import {useRef} from 'react';
 
 export default function App() {
+  const ref = useRef(null);
   return (
-    <form action={submitForm}>
+    <form ref={ref} action={async (formData) => {
+      await submitForm(formData);
+      ref.current.reset();
+    }}>
       <UsernameForm />
     </form>
   );
 }
 ```
 
-```js actions.js hidden
+```js src/actions.js hidden
 export async function submitForm(query) {
-    await new Promise((res) => setTimeout(res, 1000));
+    await new Promise((res) => setTimeout(res, 2000));
 }
 ```
 
-```json package.json hidden
-{
-  "dependencies": {
-    "react": "canary",
-    "react-dom": "canary",
-    "react-scripts": "^5.0.0"
-  },
-  "main": "/index.js",
-  "devDependencies": {}
+```css
+p {
+    height: 14px;
+    padding: 0;
+    margin: 2px 0 0 0 ;
+    font-size: 14px
 }
+
+button {
+    margin-left: 2px;
+}
+
 ```
-</Sandpack>  
+
+</Sandpack>
 
 ---
 
@@ -254,7 +223,7 @@ export async function submitForm(query) {
 
 ### `status.pending` is never `true` {/*pending-is-never-true*/}
 
-`useFormStatus` will only return status information for a parent `<form>`. 
+`useFormStatus` will only return status information for a parent `<form>`.
 
 If the component that calls `useFormStatus` is not nested in a `<form>`, `status.pending` will always return `false`. Verify `useFormStatus` is called in a component that is a child of a `<form>` element.
 
